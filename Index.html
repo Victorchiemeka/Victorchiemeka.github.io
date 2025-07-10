@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Computational Problem-Solver</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        // Cosmic & Scientific Palette
+                        'brand-cyan': '#00F5D4',
+                        'brand-cyan-hover': '#00C4A9',
+                        'space-dark': '#0B122B', // Deep space blue
+                        'space-card': '#121A3A', // Slightly lighter card color
+                        'text-light': '#E2E8F0', // Light slate for primary text
+                        'text-muted': '#8892B0', // Muted slate for secondary text
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                    },
+                    backgroundSize: {
+                        'grid-size': '20px 20px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B122B;
+            background-image: var(--tw-bg-grid-pattern);
+            background-size: var(--tw-bg-grid-size);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+
+<body class="text-text-light font-sans" spellcheck="false">
+
+    <header class="bg-space-dark/80 backdrop-blur-lg sticky top-0 z-50 border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-heading font-bold text-white">Victor Mmadu</a>
+            <div class="hidden md:flex space-x-8 font-heading text-sm">
+                <a href="#about" class="hover:text-brand-cyan transition-colors duration-300">ABOUT</a>
+                <a href="#projects" class="hover:text-brand-cyan transition-colors duration-300">PROJECTS</a>
+                <a href="#skills" class="hover:text-brand-cyan transition-colors duration-300">SKILLS</a>
+                <a href="#contact" class="hover:text-brand-cyan transition-colors duration-300">CONTACT</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-space-dark/95 backdrop-blur-xl z-40">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-button">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center space-y-8 text-2xl font-heading">
+            <a href="#about" class="mobile-menu-link hover:text-brand-cyan transition-colors duration-300">ABOUT</a>
+            <a href="#projects" class="mobile-menu-link hover:text-brand-cyan transition-colors duration-300">PROJECTS</a>
+            <a href="#skills" class="mobile-menu-link hover:text-brand-cyan transition-colors duration-300">SKILLS</a>
+            <a href="#contact" class="mobile-menu-link hover:text-brand-cyan transition-colors duration-300">CONTACT</a>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-6">
+
+        <section id="about" class="py-24 md:py-32 flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="md:w-3/5">
+                <h1 class="font-heading text-4xl md:text-6xl font-bold text-white leading-tight">
+                    Building Scalable Software for <span class="text-brand-cyan">Scientific Discovery</span>.
+                </h1>
+                <p class="mt-6 text-lg text-text-muted">
+                    As a Computer Science major, I'm fascinated by the power of computation to solve real-world problems. I focus on designing efficient algorithms and resilient software architectures to tackle data-intensive challenges. My goal is to contribute to mission-critical systems where performance, reliability, and precision are paramount.
+                </p>
+                <div class="mt-10 flex space-x-6">
+                    <a href="https://github.com/Victorchiemeka" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand-cyan transition-colors duration-300" aria-label="GitHub Profile">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/victor-mmadu/" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand-cyan transition-colors duration-300" aria-label="LinkedIn Profile">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-2/5 flex justify-center">
+                <div class="w-56 h-56 md:w-72 md:h-72 rounded-full bg-space-card overflow-hidden border-2 border-white/10 shadow-2xl">
+                    <img src="headshot.png" alt="Headshot of Victor Mmadu" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-center text-white mb-16">Research & Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="project-card bg-space-card rounded-lg overflow-hidden border border-white/10 shadow-lg group" data-title="Orbital Mechanics Simulator" data-tech="Python, Three.js, NumPy">
+                    <img src="https://placehold.co/600x400/0B122B/E2E8F0?text=Orbital+Simulator" alt="Screenshot of Orbital Mechanics Simulator" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Orbital Mechanics Simulator</h3>
+                        <p class="project-description text-text-muted mb-6">A web-based simulation that models n-body gravitational interactions, allowing users to visualize orbital trajectories in a 3D environment.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-white/10 text-xs font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-white/10 text-xs font-medium px-3 py-1 rounded-full">Three.js</span>
+                            <span class="bg-white/10 text-xs font-medium px-3 py-1 rounded-full">NumPy</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-brand-cyan text-space-dark font-bold py-2 px-4 rounded-md hover:bg-brand-cyan-hover transition-colors duration-300 text-sm">Live Demo</a>
+                            <a href="#" class="text-text-muted font-semibold py-2 px-4 rounded-md hover:text-white transition-colors duration-300 text-sm">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-space-card rounded-lg overflow-hidden border border-white/10 shadow-lg group" data-title="Rover Pathfinding Algorithm Visualizer" data-tech="C++, SFML, A* Algorithm">
+                    <img src="https://placehold.co/600x400/0B122B/E2E8F0?text=Pathfinding+Visualizer" alt="Screenshot of Rover Pathfinding Visualizer" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-8">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Rover Pathfinding Visualizer</h3>
+                        <p class="project-description text-text-muted mb-6">An application that visualizes pathfinding algorithms like A* and Dijkstra's on simulated terrain maps, designed to find optimal routes for rovers.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-white/10 text-xs font-medium px-3 py-1 rounded-full">C++</span>
+                            <span class="bg-white/10 text-xs font-medium px-3 py-1 rounded-full">SFML</span>
+                            <span class="bg-white/10 text-xs font-medium px-3 py-1 rounded-full">A* Algorithm</span>
+                        </div>
+                         <div class="flex space-x-4">
+                           <a href="#" class="bg-brand-cyan text-space-dark font-bold py-2 px-4 rounded-md hover:bg-brand-cyan-hover transition-colors duration-300 text-sm">View App</a>
+                           <a href="#" class="text-text-muted font-semibold py-2 px-4 rounded-md hover:text-white transition-colors duration-300 text-sm">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-center text-white mb-16">Technical Proficiencies</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-4">Languages</h3>
+                        <ul class="space-y-3 text-text-muted">
+                            <li>Python</li>
+                            <li>C / C++</li>
+                            <li>Java</li>
+                            <li>JavaScript / TypeScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-4">Algorithms & Data</h3>
+                        <ul class="space-y-3 text-text-muted">
+                            <li>Data Structures</li>
+                            <li>Algorithm Design</li>
+                            <li>NumPy / SciPy</li>
+                            <li>Parallel Computing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-4">Systems & Tools</h3>
+                        <ul class="space-y-3 text-text-muted">
+                            <li>Linux / Bash</li>
+                            <li>Git & GitHub</li>
+                            <li>Docker</li>
+                            <li>CMake</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-4">Frameworks</h3>
+                        <ul class="space-y-3 text-text-muted">
+                            <li>Node.js</li>
+                            <li>React</li>
+                            <li>PostgreSQL</li>
+                            <li>Three.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Let's Build the Future</h2>
+            <p class="text-lg text-text-muted max-w-2xl mx-auto mb-8">
+                I'm actively seeking internship opportunities where I can contribute to challenging projects and grow as an engineer. If my work resonates with you, I'd be excited to connect.
+            </p>
+            <a href="mailto:your.email@example.com" class="inline-block bg-brand-cyan text-space-dark font-bold text-lg py-3 px-8 rounded-md hover:bg-brand-cyan-hover transition-all duration-300 transform hover:scale-105">
+                Contact Me
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/10">
+        <div class="container mx-auto px-6 py-6 text-center text-text-muted">
+            <p>&copy; 2025 Victor Mmadu. Built with curiosity.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        const openMenu = () => mobileMenu.classList.remove('hidden');
+        const closeMenu = () => mobileMenu.classList.add('hidden');
+
+        mobileMenuButton.addEventListener('click', openMenu);
+        closeMenuButton.addEventListener('click', closeMenu);
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+
+</body>
+</html>
